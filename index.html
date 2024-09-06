@@ -1,0 +1,58 @@
+<body>
+  <script type="importmap">
+    {
+      "imports": {
+        "wasm-pack-in-browser": "./pkg/wasm_pack_in_browser.js"
+      }
+    }
+  </script>
+  <script type="module">
+    // --------------------------------------------------------------------------------------------
+    // wasm-pack
+    // --------------------------------------------------------------------------------------------
+    const pkg = await import("wasm-pack-in-browser");
+
+    // --------------------------------------------------------------------------------------------
+    // Manual
+    // --------------------------------------------------------------------------------------------
+    // let cachedTextDecoder = new TextDecoder("utf-8", {
+    //   ignoreBOM: true,
+    //   fatal: true,
+    // });
+
+    // let instance;
+    // let cachedUint8ArrayMemory0 = null;
+    // function getUint8ArrayMemory0() {
+    //   if (
+    //     cachedUint8ArrayMemory0 === null ||
+    //     cachedUint8ArrayMemory0.byteLength === 0
+    //   ) {
+    //     cachedUint8ArrayMemory0 = new Uint8Array(
+    //       instance.exports.memory.buffer
+    //     );
+    //   }
+    //   return cachedUint8ArrayMemory0;
+    // }
+
+    // function getStringFromWasm0(ptr, len) {
+    //   ptr = ptr >>> 0;
+    //   return cachedTextDecoder.decode(
+    //     getUint8ArrayMemory0().subarray(ptr, ptr + len)
+    //   );
+    // }
+
+    // WebAssembly.instantiateStreaming(
+    //   fetch("./pkg/wasm_pack_in_browser_bg.wasm"),
+    //   {
+    //     "./wasm_pack_in_browser_bg.js": {
+    //       __wbg_alert_435ed0c5e6e7f57f: (arg0, arg1) =>
+    //         alert(getStringFromWasm0(arg0, arg1)),
+    //     },
+    //   }
+    // ).then((results) => {
+    //   console.log(results);
+    //   instance = results.instance;
+    //   results.instance.exports.greet();
+    // });
+  </script>
+</body>
